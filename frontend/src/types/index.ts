@@ -37,3 +37,13 @@ export interface FEAResult {
   maxStress: number;
   reactionForces: { nodeId: number; fx: number; fy: number }[];
 }
+
+export interface WorkingCondition {
+  id: string;
+  name: string;
+  loads: Load[];
+  fixedNodeIds: number[];
+  result: FEAResult | null;
+  nodeDisplacements: Map<number, { dx: number; dy: number }>;
+  elementResults: Map<number, { stress: number; strain: number; force: number }>;
+}
